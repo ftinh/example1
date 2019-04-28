@@ -1,8 +1,9 @@
 <?php
 
-include_once("config.php");
+include 'config.php';
 
-$result = mysqli_query($mysqli, "SELECT * FROM barangmainan ORDER BY id DESC");
+$query = "select id,nama,harga from barangmainan";
+$result = mysqli_query($con,$query);
 ?>
 
 <html>
@@ -22,16 +23,17 @@ $result = mysqli_query($mysqli, "SELECT * FROM barangmainan ORDER BY id DESC");
                 </tr>
 
 <?php
-      $no=1;
+      
       
       while($res = mysqli_fetch_array($result)) {
+        $id=$res['id'];
           echo "<tr>";  
-          echo "<td>".$no; 
+          echo "<td>".$res['id']."</td>"; 
           echo "<td>".$res['nama']."</td>"; 
-          echo "<td>".$res['HARGA']."</td>"; 
-          echo "<td><a href=\"delete.php?id=$res[id]\" onClick=\return confirm('Adakah anda pasti?')
+          echo "<td>".$res['harga']."</td>"; 
+          echo "<td><a href=\"delete.php?id=$id\" onClick=\return confirm('Adakah anda pasti?')
                     \">hapus</a></td>";
-          $no++;
+          
       }
          ?>
             </table>

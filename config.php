@@ -1,9 +1,9 @@
 <?php
 
 $databaseHost = 'localhost';
-$databaseName = 'KedaiDuluDulu';
 $databaseUsername = 'root';
-$databasePassword = '';
+$databasePassword = '123456';
+$databaseName = 'fstore';
 
-$mysqli = mysqli_connect($databaseHost, $databaseUsername,$databasePassword, $databaseName );
+$con = mysqli_connect($databaseHost, $databaseUsername,$databasePassword, $databaseName );
 ?>
